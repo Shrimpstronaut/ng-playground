@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {TaskService} from '@task/services/task.service';
 import {TaskDashboardStateService} from '@task/services/task-dashboard-state.service';
 import {Task} from '@task/models/task';
+import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'task-list',
@@ -13,8 +14,8 @@ import {Task} from '@task/models/task';
 export class TaskListComponent implements OnInit {
 
   tasks$ = new Observable<Task[]>();
+  isLoading = false;
 
-  displayedColumns: string[] = ['title']; // configuration for the list component
   selectedTaskId: number; // hold the currently selected task id to show it is selected
 
   constructor(
@@ -25,8 +26,13 @@ export class TaskListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isLoading = true;
     this.stateService.setSelectedTaskId(null);
-    this.tasks$ = this.taskService.findAll(); // load all available posts
+    this.tasks$ = this.taskService.findAll().pipe(
+      tap(() => {
+        this.isLoading = false;
+      })
+    ); // load all available posts
     this.stateService.selectedTaskId$.subscribe(postId => this.selectedTaskId = postId);
   }
 

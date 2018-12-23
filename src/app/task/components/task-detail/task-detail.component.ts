@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Task} from '@task/models/task';
 import {TaskService} from '@task/services/task.service';
 import {TaskDashboardStateService} from '@task/services/task-dashboard-state.service';
+import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'task-detail',
@@ -37,7 +38,11 @@ export class TaskDetailComponent implements OnInit {
   getTaskDetailsById(taskId: number) {
     this.stateService.setSelectedTaskId(taskId);
     this.isLoading = true;
-    this.task$ = this.taskService.findById(taskId);
+    this.task$ = this.taskService.findById(taskId).pipe(
+      tap(() => {
+        this.isLoading = false;
+      })
+    );
   }
 
 }
