@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {Component, Input} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Task} from '@task/models/task';
+import {ActivatedRoute} from '@angular/router';
 import {TaskService} from '@task/services/task.service';
 import {TaskDashboardStateService} from '@task/services/task-dashboard-state.service';
 import {tap} from 'rxjs/operators';
@@ -11,8 +11,11 @@ import {tap} from 'rxjs/operators';
   templateUrl: './task-detail.component.html',
   styleUrls: ['./task-detail.component.sass']
 })
-export class TaskDetailComponent implements OnInit {
+export class TaskDetailComponent {
 
+  @Input() set taskId(taskId) {
+    this.getTaskDetailsById(taskId);
+  }
   task$ = new Observable<Task>();
   isLoading = false;
 
@@ -21,13 +24,6 @@ export class TaskDetailComponent implements OnInit {
     private taskService: TaskService,
     private stateService: TaskDashboardStateService
   ) {
-  }
-
-  ngOnInit() {
-    // check for updates on the route parameters
-    this.route.params.subscribe(params => {
-      this.getTaskDetailsById(Number(params.id));
-    });
   }
 
   /**

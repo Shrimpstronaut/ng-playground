@@ -6,12 +6,16 @@ import {TaskDetailComponent} from '@task/components/task-detail/task-detail.comp
 import {TaskListComponent} from '@task/components/task-list/task-list.component';
 import {TaskRoutingModule} from '@task/task-routing.module';
 import {ThemeModule} from '@app/theme/theme.module';
+import {TaskEditComponent} from './components/task-edit/task-edit.component';
+import {TaskContentComponent} from './components/task-content/task-content.component';
 
 @NgModule({
   declarations: [
     TaskDashboardComponent,
     TaskDetailComponent,
-    TaskListComponent
+    TaskListComponent,
+    TaskEditComponent,
+    TaskContentComponent
   ],
   imports: [
     CommonModule,

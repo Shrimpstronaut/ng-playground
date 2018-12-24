@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
-import {TaskService} from '@task/services/task.service';
-import {TaskDashboardStateService} from '@task/services/task-dashboard-state.service';
-import {Task} from '@task/models/task';
+import {TaskService} from '../../services/task.service';
+import {TaskDashboardStateService} from '../../services/task-dashboard-state.service';
+import {Task} from '../../models/task';
 import {tap} from 'rxjs/operators';
 
 @Component({

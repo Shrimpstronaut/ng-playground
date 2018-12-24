@@ -1,16 +1,7 @@
-<mat-card>
+<div *ngIf="(task$|async) as task; else loading">
+  {{task|json}}
+</div>
 
-  <mat-card-header>
-    <mat-card-title>
-      Task details
-    </mat-card-title>
-  </mat-card-header>
-
-  <mat-card-content *ngIf="(task$|async) as task; else loading">
-    {{task|json}}
-  </mat-card-content>
-
-  <ng-template #loading>
-    <mat-spinner  style="margin:0 auto;"></mat-spinner>
-  </ng-template>
-</mat-card>
+<ng-template #loading>
+  <mat-spinner  style="margin:0 auto;"></mat-spinner>
+</ng-template>
