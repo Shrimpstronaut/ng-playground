@@ -1,7 +1,0 @@
-<div *ngIf="(task$|async) as task; else loading">
-  {{task|json}}
-</div>
-
-<ng-template #loading>
-  <mat-spinner  style="margin:0 auto;"></mat-spinner>
-</ng-template>

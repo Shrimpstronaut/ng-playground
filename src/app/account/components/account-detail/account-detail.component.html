@@ -1,0 +1,7 @@
+<div *ngIf="(account$|async) as task; else loading">
+  <account-edit [account]="task"></account-edit>
+</div>
+
+<ng-template #loading>
+  <mat-spinner  style="margin:0 auto;"></mat-spinner>
+</ng-template>

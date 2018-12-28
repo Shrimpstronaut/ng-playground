@@ -3,12 +3,12 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl} from '@angular/forms';
 
 @Component({
-  selector: 'task-content',
-  templateUrl: './task-content.component.html',
-  styleUrls: ['./task-content.component.sass']
+  selector: 'account-content',
+  templateUrl: './account-content.component.html',
+  styleUrls: ['./account-content.component.sass']
 })
-export class TaskContentComponent implements OnInit {
-  taskId: number;
+export class AccountContentComponent implements OnInit {
+  accountId: number;
   tabs = ['detail', 'notes', 'history'];
   selectedTab = new FormControl(0);
 
@@ -21,7 +21,7 @@ export class TaskContentComponent implements OnInit {
   ngOnInit() {
     // check for updates on the route parameters
     this.route.params.subscribe(params => {
-      this.taskId = Number(params.id);
+      this.accountId = Number(params.id);
     });
 
     this.route.queryParams.subscribe(queryParams => {

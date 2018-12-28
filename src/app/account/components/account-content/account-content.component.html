@@ -1,0 +1,20 @@
+<mat-card class="content-container">
+
+  <mat-card-content>
+
+  <mat-tab-group [selectedIndex]="selectedTab.value" (selectedIndexChange)="onTabSelect($event)">
+      <mat-tab label="Detail">
+        <account-detail [accountId]="accountId"></account-detail>
+      </mat-tab>
+      <mat-tab label="Notes">
+        <router-outlet></router-outlet>
+      </mat-tab>
+      <mat-tab label="History">
+        <router-outlet></router-outlet>
+      </mat-tab>
+    </mat-tab-group>
+    <router-outlet></router-outlet>
+
+  </mat-card-content>
+
+</mat-card>

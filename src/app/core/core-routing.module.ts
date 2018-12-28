@@ -9,8 +9,8 @@ const appBaseRoutes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'tasks',
-    loadChildren: '../task/task.module#TaskModule'
+    path: 'accounts',
+    loadChildren: '../account/account.module#AccountModule'
   },
   {
     path: '**',
