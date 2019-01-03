@@ -7,7 +7,7 @@ import {AppAccount} from '@account/models/appAccount';
 @Injectable({
   providedIn: 'root'
 })
-export class AccountService {
+export class AccountDataService {
 
   private baseUrl = environment.api.baseUrl + '/accounts';
 

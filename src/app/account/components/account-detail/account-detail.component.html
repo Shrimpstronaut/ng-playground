@@ -1,5 +1,5 @@
-<div *ngIf="(account$|async) as task; else loading">
-  <account-edit [account]="task"></account-edit>
+<div *ngIf="(account$|async) as account; else loading">
+  <account-edit #editForm [account]="account"></account-edit>
 </div>
 
 <ng-template #loading>

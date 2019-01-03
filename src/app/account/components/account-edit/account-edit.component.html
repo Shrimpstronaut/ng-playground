@@ -1,4 +1,14 @@
-<div>
-  <h1>Account edit</h1>
-  {{account|json}}
-</div>
+<form [formGroup]="registerForm" class="form">
+  <mat-form-field>
+    <input matInput placeholder="Email" formControlName="email">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Username" formControlName="username">
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Bio" formControlName="bio"></textarea>
+  </mat-form-field>
+</form>
+
+<button mat-button *ngIf="registerForm.disabled" (click)="edit()">Edit</button>
+<button mat-button *ngIf="registerForm.enabled" (click)="cancel()">Cancel edit</button>

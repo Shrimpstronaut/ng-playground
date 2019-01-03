@@ -1,20 +1,19 @@
 <mat-card class="content-container">
 
-  <mat-card-content>
+  <nav mat-tab-nav-bar>
+    <a mat-tab-link
+       *ngFor="let link of navLinks"
+       [routerLink]="link.path"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive"
+       [routerLinkActiveOptions]="{exact:true}"
+    >
+      {{link.label}}
+    </a>
+  </nav>
 
-  <mat-tab-group [selectedIndex]="selectedTab.value" (selectedIndexChange)="onTabSelect($event)">
-      <mat-tab label="Detail">
-        <account-detail [accountId]="accountId"></account-detail>
-      </mat-tab>
-      <mat-tab label="Notes">
-        <router-outlet></router-outlet>
-      </mat-tab>
-      <mat-tab label="History">
-        <router-outlet></router-outlet>
-      </mat-tab>
-    </mat-tab-group>
+  <div class="content">
     <router-outlet></router-outlet>
-
-  </mat-card-content>
+  </div>
 
 </mat-card>

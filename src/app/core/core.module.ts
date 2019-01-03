@@ -9,6 +9,7 @@ import {NotFoundComponent} from '@core/components/not-found/not-found.component'
 import {CoreRoutingModule} from '@core/core-routing.module';
 import {CommonModule} from '@angular/common';
 import {ThemeModule} from '@app/theme/theme.module';
+import {DiscardChangesDialogComponent} from './dialogs/discard-changes-dialog/discard-changes-dialog.component';
 
 @NgModule({
   declarations: [
@@ -17,18 +18,20 @@ import {ThemeModule} from '@app/theme/theme.module';
     ProgressSpinnerDialogComponent,
     HomeComponent,
     NotFoundComponent,
+    DiscardChangesDialogComponent,
   ],
   imports: [
     CoreRoutingModule,
     CommonModule,
     HttpClientModule,
-    ThemeModule
+    ThemeModule,
   ],
   exports: [
     RouterModule
   ],
   entryComponents: [
-    ProgressSpinnerDialogComponent
+    ProgressSpinnerDialogComponent,
+    DiscardChangesDialogComponent
   ]
 })
 export class CoreModule { }

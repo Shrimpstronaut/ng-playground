@@ -36,7 +36,7 @@ import {LayoutModule} from '@angular/cdk/layout';
     MatDialogModule,
     MatProgressSpinnerModule,
     MatChipsModule,
-    MatTabsModule
+    MatTabsModule,
   ]
 })
 export class ThemeModule { }
